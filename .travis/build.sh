@@ -16,3 +16,5 @@ docker build -t "$BUILDTAGSPECIFIER"      "$PROJECT/$VERSION"
 docker tag   -f "$BUILDTAGSPECIFIER-curl" "$TAG:$TAGSPECIFIER-curl"
 docker tag   -f "$BUILDTAGSPECIFIER-scm"  "$TAG:$TAGSPECIFIER-scm"
 docker tag   -f "$BUILDTAGSPECIFIER"      "$TAG:$TAGSPECIFIER"
+
+docker run --rm "$BUILDTAGSPECIFIER" gcc --version
