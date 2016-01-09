@@ -4,3 +4,29 @@ sudo: required
 
 services:
 - docker
+
+env:
+  global:
+    - secure: "FDFsHO5xkNrMqcvzMNMZnvSxKjinykCUK7ZXJyDn5IeQP0IbpeUYQWMV87XqU9ybsqJlJOpG4vjh6qyiKq5mCggoVqTJU1SItP3yUoOf/QcmeNi0vbyxaKJ82pTKzxJjcuS75aV5mG/KfXoJwSzsYscn9ZO7RxLVcRlsSYaFgeWM8xZSp6cOvyOvqKN85Qnw8S5D8bErovfZgV1mcZ8oT4IheY4867TeHMmdcRpDs8Zjjw7gnNAor3CBHLAkEV34U62wgTbFji0MFDfnD69xyyX7RiDXp+r3tUSPLMWoAp+gzcpI/nyRD8gcZaleo4bthdjYLnunPhu0pE4cJ6M8HdnxjNvxtDAwG09U6FZ9UgRKoClLLdJ+PW3ArlVuq5FWDRoFKhrVF1KsMCVcczrgxX3YIM7bH+eP9opQZ9g274L65FTQcN3ChbespZIaNHNp1oZUmM/0i7ZtTASTHtxGcwVcIdxdk25RXBrGo1Hsoq5E+if5uNwXsIj4bECPO8xTMfsd/qmJ8dWdxY9sr5yp6s9c/fBjs/P71kkMnGqZeiWEdPrAf01x9FggZ3Nat0J1UHqyxpjF6dtas2W8JNn/WVx7TQMJT7uYzDrOE4rASotHx4O9994AGOIbosm23ABHKmCRVUyKwRCtFIR0gAkwmyDWuE5GCFZSnLg/vYLkJAA="
+    - secure: "mVNdb3JDhlLgMNP5NBRyxQCWG9kW62HibCIIHWwUX7ZT8znV43B90lI3bFma2PGT87yJn+7/V/kS5TFucJ6zvGmSmV0Jc9kHFNMwGemSzWgQsXrEEWzHx7ATyUHa+5Ft3JaUg8MkAKv/vQRW1Qtu7VfqpXxUWhLQ/xwniu0qx7A4hwEhKKcgStsjxU6+1VAREutOtPYcgAnNKTtNf9neVRFi/PzUVjycQPISJc56c9XE5hw3KOEglfjeWyLsQhoVnlXM1uYvN7xHGp3VyEfW5usLLzWAcEwIv9l997nCauRHPM7yYrL1sBy0Trx739Uhb7/HRwBPnX1MeuG0qBhk3tOnzFqz78qtPiGDpVoiZ6Rwu19NIf1P+nibujF66gAih1te36tYXahaFVYY68+VzRnIrdZK4sgOu2g7JsbqjtLrSKdIbGl8EsW5fglXprfg020MD5whSFLvBPO+u3fsv79swNfBn815ntheTxmddqgxme+SdMQ43higD6w8jO/4djdd/OsrOzrzL10CVZwEf1pYNrHoqXMveVp7FKC8pAAm3aBzspdlFXcoYXQvlTRld326ehjNpcDj9/zwjnKHSeGc5jwCN+jsXLKEpz7r9x3Qk1uxcruObQn1t+Bd4ZHJrfq1cHXW2FFro2GTR4kQH82jIFubE9azNztTqDZTLwg="
+    - secure: "R+o6N20zuGTN804rLuJmP4whaCzZ9bfqYuIobj6cOY197lspJqfgqYdxBu0JcMGQ8mi/4J4FcdtB0TXdlo2UnvpPjdLP6yMjNiH8B4QC/aTAYdBx/W8w+TRpJ5O/SoC8FMUArIbAyKnHpA0UGq8TGHAOfK4d8+cOblCdGVVlWMOOlrqpkzlRWTVsvyRzST5nWZzlhxlaz70d8dLZuG2MUzx+l0u/MwpVeLKSADOy3lzIdVH26hUpjhvcON/qyS2okPLimb6Pkk/omqy48809FpF8lvdzTzMlZK8+JGUXPzy+auD8MnTg9FKHRHDE4XWCuBpJSyJjEUziVg6QB3hw/DsUBGCcyhmtlxlACSijIwp9LLlsila2I+ABbmggnIPU9JgnTuNowmQn1PweRgOUaTiWAqrY87wuHHhZ3Ih01ppLE7kV5XRWvND/9rJ86ySKKkE2NGePEiVoNskKIo5GBL2hCqjur2inwqx4Hr/Jo86+89m9tv3jthk0heJf48BTDrkazDxU0dgdaEiu6mBp48/fiBEnIedHarkC+EB66Kj5UU7N5wkU+z1CbKDqqUvQuA8tnxBJbN9VwH/HhZeCBeG2O89NvAl0yKVol/Kjn8PZ+bxtQTLHGx6G9+Ik2MEUlcPqYzYdN9hiILoWq1k8tcoOUnRJBC9Ita4nnYzinW0="
+    - PROJECT="buildpack"
+    - REPOSITORY="encodeering"
+    - VERSION=jessie
+  matrix:
+    - ARCH=armhf
+    - ARCH=amd64
+
+before_script:
+- sudo cat /proc/sys/fs/binfmt_misc/status
+- sudo sh -c "echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register"
+- git clone --depth 1 https://github.com/docker-library/buildpack-deps.git "$PROJECT"
+
+script:
+- sudo -E sh .travis/build.sh
+
+after_success:
+- sudo -E sh .travis/deploy.sh
+
+after_script:
+- docker images
