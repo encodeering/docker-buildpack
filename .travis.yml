@@ -18,17 +18,17 @@ env:
     - ARCH=amd64
 
 before_script:
-- sudo -E sh .travis/prepare.sh
+- sudo -E bash .travis/prepare.sh
 - git clone --depth 1 https://github.com/docker-library/buildpack-deps.git "$PROJECT"
 
 script:
-- sudo -E sh .travis/build.sh
+- sudo -E bash .travis/build.sh
 
 after_script:
 - docker images
 
 deploy:
-  script: sudo -E sh .travis/deploy.sh
+  script: sudo -E bash .travis/deploy.sh
   provider: script
   on:
     branch: master
