@@ -13,6 +13,7 @@ env:
     - PROJECT="buildpack"
     - REPOSITORY="encodeering"
     - VERSION=jessie
+    - BRANCH="$TRAVIS_BRANCH"
     - COMMIT="2f7c5a4d207cabaec9377e6ab05bfa41e8e6bd6c"
   matrix:
     - ARCH=armhf
