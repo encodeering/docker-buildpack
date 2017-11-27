@@ -13,6 +13,7 @@ env:
     - PROJECT="buildpack"
     - REPOSITORY="encodeering"
     - VERSION=jessie
+    - COMMIT="2f7c5a4d207cabaec9377e6ab05bfa41e8e6bd6c"
   matrix:
     - ARCH=armhf
     - ARCH=amd64
@@ -21,7 +22,7 @@ install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.3
 
 before_script:
-- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/docker-library/buildpack-deps.git" "modules/$PROJECT"
+- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/docker-library/buildpack-deps.git" "modules/$PROJECT" "$COMMIT"
 
 script:
 - sudo -E bash ./module.sh "modules" "./build.sh"
