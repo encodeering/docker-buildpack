@@ -17,18 +17,20 @@ env:
     - ARCH=armhf
     - ARCH=amd64
 
+install:
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.3
+
 before_script:
-- sudo -E bash .travis/prepare.sh
-- git clone --depth 1 https://github.com/docker-library/buildpack-deps.git "$PROJECT"
+- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/docker-library/buildpack-deps.git" "modules/$PROJECT"
 
 script:
-- sudo -E bash .travis/build.sh
+- sudo -E bash ./module.sh "modules" "./build.sh"
 
 after_script:
 - docker images
 
 deploy:
-  script: sudo -E bash .travis/deploy.sh
+  script: sudo -E bash ./module.sh "." "./release.sh" "curl" "scm"
   provider: script
   on:
     branch: master
