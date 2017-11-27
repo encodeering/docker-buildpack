@@ -33,5 +33,6 @@ after_script:
 deploy:
   script: sudo -E bash ./module.sh "." "./release.sh" "curl" "scm"
   provider: script
+  skip_cleanup: true
   on:
     all_branches: true
