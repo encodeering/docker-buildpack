@@ -34,4 +34,4 @@ deploy:
   script: sudo -E bash ./module.sh "." "./release.sh" "curl" "scm"
   provider: script
   on:
-    branch: master
+    all_branches: true
