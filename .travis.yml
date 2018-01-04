@@ -21,7 +21,7 @@ env:
     - ARCH=amd64 VERSION=stretch
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.3
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.4
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/docker-library/buildpack-deps.git" "modules/$PROJECT" "$COMMIT"
