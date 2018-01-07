@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/encodeering/docker-buildpack.svg?branch=master)](https://travis-ci.org/encodeering/docker-buildpack)
 
-### Docker
+### Docker ([Origin](https://github.com/docker-library/buildpack-deps))
 
 #### Debian
 
