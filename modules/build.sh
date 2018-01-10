@@ -2,12 +2,12 @@
 
 set -e
 
-import com.encodeering.docker.docker
+import com.encodeering.ci.docker
 
 docker-pull "${REPOSITORY}/debian-${ARCH}:${VERSION}" "debian:${VERSION}"
 
-docker build -t "buildpack-deps:${VERSION}-curl" -t "${DOCKER_IMAGE}-curl" "${PROJECT}/${VERSION}/curl"
-docker build -t "buildpack-deps:${VERSION}-scm"  -t "${DOCKER_IMAGE}-scm"  "${PROJECT}/${VERSION}/scm"
-docker build -t "buildpack-deps:${VERSION}"      -t "${DOCKER_IMAGE}"      "${PROJECT}/${VERSION}"
+docker-build --suffix curl -t "buildpack-deps:${VERSION}-curl" "${PROJECT}/${VERSION}/curl"
+docker-build --suffix scm  -t "buildpack-deps:${VERSION}-scm"  "${PROJECT}/${VERSION}/scm"
+docker-build               -t "buildpack-deps:${VERSION}"      "${PROJECT}/${VERSION}"
 
-docker run --rm "${DOCKER_IMAGE}" gcc --version
+docker-verify gcc --version
