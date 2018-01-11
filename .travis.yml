@@ -12,7 +12,6 @@ env:
     - secure: "R+o6N20zuGTN804rLuJmP4whaCzZ9bfqYuIobj6cOY197lspJqfgqYdxBu0JcMGQ8mi/4J4FcdtB0TXdlo2UnvpPjdLP6yMjNiH8B4QC/aTAYdBx/W8w+TRpJ5O/SoC8FMUArIbAyKnHpA0UGq8TGHAOfK4d8+cOblCdGVVlWMOOlrqpkzlRWTVsvyRzST5nWZzlhxlaz70d8dLZuG2MUzx+l0u/MwpVeLKSADOy3lzIdVH26hUpjhvcON/qyS2okPLimb6Pkk/omqy48809FpF8lvdzTzMlZK8+JGUXPzy+auD8MnTg9FKHRHDE4XWCuBpJSyJjEUziVg6QB3hw/DsUBGCcyhmtlxlACSijIwp9LLlsila2I+ABbmggnIPU9JgnTuNowmQn1PweRgOUaTiWAqrY87wuHHhZ3Ih01ppLE7kV5XRWvND/9rJ86ySKKkE2NGePEiVoNskKIo5GBL2hCqjur2inwqx4Hr/Jo86+89m9tv3jthk0heJf48BTDrkazDxU0dgdaEiu6mBp48/fiBEnIedHarkC+EB66Kj5UU7N5wkU+z1CbKDqqUvQuA8tnxBJbN9VwH/HhZeCBeG2O89NvAl0yKVol/Kjn8PZ+bxtQTLHGx6G9+Ik2MEUlcPqYzYdN9hiILoWq1k8tcoOUnRJBC9Ita4nnYzinW0="
     - PROJECT="buildpack"
     - REPOSITORY="encodeering"
-    - BRANCH="$TRAVIS_BRANCH"
   matrix:
     - ARCH=armhf VERSION=jessie
     - ARCH=armhf VERSION=stretch
@@ -20,7 +19,7 @@ env:
     - ARCH=amd64 VERSION=stretch
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.7
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.8
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh"
