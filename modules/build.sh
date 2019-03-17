@@ -10,4 +10,4 @@ docker-build --suffix curl -t "buildpack-deps:${VERSION}-curl" "${PROJECT}/${VER
 docker-build --suffix scm  -t "buildpack-deps:${VERSION}-scm"  "${PROJECT}/${VERSION}/scm"
 docker-build               -t "buildpack-deps:${VERSION}"      "${PROJECT}/${VERSION}"
 
-docker-verify gcc --version
+docker-verify cat /etc/os-release | dup | contains "(${VERSION})"
