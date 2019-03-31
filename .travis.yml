@@ -13,9 +13,7 @@ env:
     - PROJECT="buildpack"
     - REPOSITORY="encodeering"
   matrix:
-    - ARCH=armhf VERSION=jessie
     - ARCH=armhf VERSION=stretch
-    - ARCH=amd64 VERSION=jessie
     - ARCH=amd64 VERSION=stretch
 
 install:
