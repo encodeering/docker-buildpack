@@ -14,7 +14,9 @@ env:
     - REPOSITORY="encodeering"
   matrix:
     - ARCH=armhf VERSION=stretch
+    - ARCH=armhf VERSION=buster
     - ARCH=amd64 VERSION=stretch
+    - ARCH=amd64 VERSION=buster
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.11
