@@ -1,0 +1,12 @@
+{
+    "concourse": {
+        "dind": "0.1.13"
+    },
+    "platforms": ["amd64", "armhf"],
+    "pipelines": [
+        { "project": "buildpack", "version": "stretch"  },
+        { "project": "buildpack", "version": "buster"   },
+        { "project": "buildpack", "version": "bullseye" },
+        { "project": "buildpack", "version": "bookworm" }
+    ]
+}
