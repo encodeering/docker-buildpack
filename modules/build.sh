@@ -10,4 +10,4 @@ docker-build --suffix curl -t "buildpack-deps:${VERSION}-curl" "${PROJECT}/debia
 docker-build --suffix scm  -t "buildpack-deps:${VERSION}-scm"  "${PROJECT}/debian/${VERSION}/scm"
 docker-build               -t "buildpack-deps:${VERSION}"      "${PROJECT}/debian/${VERSION}"
 
-docker-verify cat /etc/os-release | dup | contains "(${VERSION})"
+docker-verify cat /etc/os-release | dup | matches "Debian.*?${VERSION}"
