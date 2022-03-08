@@ -1,3 +1,3 @@
 SCM_SOURCE=https://github.com/docker-library/buildpack-deps.git
 SCM_TARGET=modules/$PROJECT
-SCM_COMMIT=4d7c3e93fd1cafae3e319925fb6dcf43537e1ca9
+SCM_COMMIT=a017681ea2f5891786bfa151a0d38fbea051d4ba
