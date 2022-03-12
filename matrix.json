@@ -1,12 +1,12 @@
 {
     "concourse": {
-        "dind": "0.1.14"
+        "dind": "0.1.15"
     },
     "platforms": ["amd64", "armhf"],
     "pipelines": [
-        { "project": "buildpack", "version": "stretch"  },
-        { "project": "buildpack", "version": "buster"   },
-        { "project": "buildpack", "version": "bullseye" },
-        { "project": "buildpack", "version": "bookworm" }
+        { "project": "buildpack", "base": "debian", "version": "stretch",  "variant": "" },
+        { "project": "buildpack", "base": "debian", "version": "buster",   "variant": "" },
+        { "project": "buildpack", "base": "debian", "version": "bullseye", "variant": "" },
+        { "project": "buildpack", "base": "debian", "version": "bookworm", "variant": "" }
     ]
 }
