@@ -4,7 +4,6 @@
     },
     "platforms": ["amd64", "armhf"],
     "pipelines": [
-        { "project": "buildpack", "base": "debian", "version": "stretch",  "variant": "" },
         { "project": "buildpack", "base": "debian", "version": "buster",   "variant": "" },
         { "project": "buildpack", "base": "debian", "version": "bullseye", "variant": "" },
         { "project": "buildpack", "base": "debian", "version": "bookworm", "variant": "" }
